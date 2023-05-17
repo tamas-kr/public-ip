@@ -9793,8 +9793,11 @@ const core = __nccwpck_require__(4470);
 const github = __nccwpck_require__(6987);
 
 try {
-    const ip = "1.2.3.4";
     const url = core.getInput('url');
+    let ip = "";
+    fetch(url)
+        .then(response => response.text())
+        .then(text => ip = text);
     console.log(`Service URL: ${url}`);
     console.log(`IP: ${ip}`);
     core.setOutput("ip", ip);
