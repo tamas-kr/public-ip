@@ -9,8 +9,9 @@ try {
 
     fetch(url)
         .then(response => {
-            console.log(response.text());
-            return response.text();
+            var body = response.text();
+            console.log(body);
+            return body;
         })
         .then(text => ip = text);
 
