@@ -16883,19 +16883,22 @@ const core = __nccwpck_require__(4470);
 const github = __nccwpck_require__(6987);
 
 (async function GetIp() {
+    try {
+        const response = await fetch(core.getInput('url'));
 
-  const response = await fetch(core.getInput('url'));
+        if (!response.ok) {
+            core.setFailed(`HTTP error: ${response.status}`);
+            return;
+        }
 
-  if (!response.ok) {
-    core.setFailed(`HTTP error: ${response.status}`);
-    return;
-  }
+        const text = await response.text();
+        console.log(text);
 
-  const text = await response.text();
-  console.log(text);
-
-  core.setOutput("ip", text);
-
+        core.setOutput("ip", text);
+    }
+    catch (error) {
+        core.setFailed(error.message);
+    }
 })()
 })();
 
