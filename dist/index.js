@@ -16888,6 +16888,7 @@ try {
 
      let ip = fetch(url)
                 .then(response => response.text())
+                .then(text => text)
 
     console.log(`Service URL: ${url}`);
     console.log(`IP: ${ip}`);
