@@ -8,12 +8,8 @@ try {
     let ip = "";
 
     fetch(url)
-        .then(response => {
-            var body = response.text();
-            console.log(body);
-            return body;
-        })
-        .then(text => ip = text);
+        .then(response => response.text())
+        .then(text => console.log(text));
 
     console.log(`Service URL: ${url}`);
     console.log(`IP: ${ip}`);
