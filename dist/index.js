@@ -16882,17 +16882,21 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 const core = __nccwpck_require__(4470);
 const github = __nccwpck_require__(6987);
 
-try {
-    const url = core.getInput('url');
+(async function getSomething() {
 
-    fetch(url)
-        .then(response => response.text())
-        .then(text => {
-            core.setOutput("ip", text);
-        });
-} catch (error) {
-    core.setFailed(error.message);
-}
+  const response = await fetch('url');
+
+  if (!response.ok) {
+    core.setFailed(`HTTP error: ${response.status}`);
+    return;
+  }
+
+  const text = await response.text();
+  console.log(text);
+
+  core.setOutput(text);
+
+})()
 })();
 
 module.exports = __webpack_exports__;
