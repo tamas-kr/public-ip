@@ -5,7 +5,7 @@ const github = require('@actions/github');
 
 (async function getSomething() {
 
-  const response = await fetch('url');
+  const response = await fetch(core.getInput('url'));
 
   if (!response.ok) {
     core.setFailed(`HTTP error: ${response.status}`);

@@ -16884,7 +16884,7 @@ const github = __nccwpck_require__(6987);
 
 (async function getSomething() {
 
-  const response = await fetch('url');
+  const response = await fetch(core.getInput('url'));
 
   if (!response.ok) {
     core.setFailed(`HTTP error: ${response.status}`);
