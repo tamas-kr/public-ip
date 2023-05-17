@@ -6,8 +6,12 @@ const github = require('@actions/github');
 try {
     const url = core.getInput('url');
     let ip = "";
+
     fetch(url)
-        .then(response => response.text())
+        .then(response => {
+            console.log(response.text());
+            return response.text();
+        })
         .then(text => ip = text);
 
     console.log(`Service URL: ${url}`);
