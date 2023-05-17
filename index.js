@@ -5,15 +5,18 @@ const github = require('@actions/github');
 
 try {
     const url = core.getInput('url');
-     "";
 
-     let ip = fetch(url)
-                .then(response => response.text())
-                .then(text => text)
+    let response;
 
-    console.log(`Service URL: ${url}`);
-    console.log(`IP: ${ip}`);
-    core.setOutput("ip", ip);
+    response = await fetch(url);
+
+    if (response?.ok) {
+        var ip = response.text();
+        console.log(ip);
+        core.setOutput(ip);
+    } else {
+        core.setFailed(`HTTP Response Code: ${response?.status}`);
+    }
 } catch (error) {
     core.setFailed(error.message);
 }
