@@ -1,0 +1,12 @@
+name: 'Public IP'
+description: 'Wrapper for a public-ip service.'
+inputs:
+  url:
+    description: 'URL'
+    required: true
+outputs:
+  ip:
+    description: 'Public IP address.'
+runs:
+  using: 'node16'
+  main: 'index.js'
