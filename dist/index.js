@@ -16884,11 +16884,10 @@ const github = __nccwpck_require__(6987);
 
 try {
     const url = core.getInput('url');
-    let ip = "";
+     "";
 
-    fetch(url)
-        .then(response => response.text())
-        .then(text => console.log(text));
+     let ip = fetch(url)
+                .then(response => response.text())
 
     console.log(`Service URL: ${url}`);
     console.log(`IP: ${ip}`);
