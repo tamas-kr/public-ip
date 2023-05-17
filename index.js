@@ -6,17 +6,11 @@ const github = require('@actions/github');
 try {
     const url = core.getInput('url');
 
-    let response;
-
-    response = await fetch(url);
-
-    if (response?.ok) {
-        var ip = response.text();
-        console.log(ip);
-        core.setOutput(ip);
-    } else {
-        core.setFailed(`HTTP Response Code: ${response?.status}`);
-    }
+    fetch(url)
+        .then(response => response.text())
+        .then(text => {
+            core.setOutput("ip", text);
+        });
 } catch (error) {
     core.setFailed(error.message);
 }
