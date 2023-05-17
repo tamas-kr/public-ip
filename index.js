@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-(async function getSomething() {
+(async function GetIp() {
 
   const response = await fetch(core.getInput('url'));
 
@@ -15,6 +15,6 @@ const github = require('@actions/github');
   const text = await response.text();
   console.log(text);
 
-  core.setOutput(text);
+  core.setOutput("ip", text);
 
 })()

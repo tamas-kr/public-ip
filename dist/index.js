@@ -16882,7 +16882,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 const core = __nccwpck_require__(4470);
 const github = __nccwpck_require__(6987);
 
-(async function getSomething() {
+(async function GetIp() {
 
   const response = await fetch(core.getInput('url'));
 
@@ -16894,7 +16894,7 @@ const github = __nccwpck_require__(6987);
   const text = await response.text();
   console.log(text);
 
-  core.setOutput(text);
+  core.setOutput("ip", text);
 
 })()
 })();
