@@ -5,7 +5,7 @@ inputs:
     description: 'URL'
     required: true
 outputs:
-  IP_ADDRR:
+  ip4:
     description: 'Public IP address.'
 runs:
   using: 'node16'

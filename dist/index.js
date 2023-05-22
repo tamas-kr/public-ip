@@ -16894,7 +16894,7 @@ const github = __nccwpck_require__(6987);
         const text = await response.text();
         console.log(text);
 
-        core.setOutput("IP_ADDR", text);
+        core.setOutput("ip4", text);
     }
     catch (error) {
         core.setFailed(error.message);
